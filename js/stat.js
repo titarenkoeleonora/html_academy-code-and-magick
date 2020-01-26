@@ -5,6 +5,7 @@ var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
 var GAP = 10;
+var GAP_TITLE = 145;
 var TEXT_GAP = 20;
 var BAR_SPACE = 50;
 var BAR_WIDTH = 40;
@@ -38,8 +39,7 @@ window.renderStatistics = function (ctx, players, times) {
   ctx.fillStyle = '#000';
   ctx.font = '16px PT Mono';
   ctx.textBaseline = 'hanging';
-  ctx.fillText('Ура вы победили!', 145, 20);
-  ctx.fillText('Список результатов:', 145, 40);
+  ctx.fillText('Ура вы победили! Список результатов:', GAP_TITLE, TEXT_GAP);
 
   ctx.fillStyle = '#000';
 
@@ -51,7 +51,7 @@ window.renderStatistics = function (ctx, players, times) {
     var barHeight = (BAR_CHART_HEIGHT * times[i]) / maxTime;
 
     ctx.fillStyle = 'black';
-    ctx.fillText(time, contentX, 220 - barHeight);
+    ctx.fillText(time, contentX, CLOUD_HEIGHT - GAP - TEXT_GAP - TEXT_GAP - barHeight);
     ctx.fillText(players[i], contentX, CLOUD_HEIGHT - TEXT_GAP);
 
     getBarColor(ctx, players[i]);
