@@ -4,7 +4,7 @@ var WIZARD_NAMES = ['Иван', 'Хуан Себастьян', 'Мария', 'К
 var WIZARD_SURNAMES = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var WIZARD_COAT = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var WIZARD__EYES = ['black', 'red', 'blue', 'yellow', 'green'];
-var WIZARDS_SUM = 4;
+var WIZARDS_COUNT = 4;
 
 document.querySelector('.setup').classList.remove('hidden');
 document.querySelector('.setup-similar').classList.remove('hidden');
@@ -28,8 +28,12 @@ var renderWizard = function () {
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-for (var i = 0; i < WIZARDS_SUM; i++) {
-  fragment.appendChild(renderWizard());
-}
-similarListElement.appendChild(fragment);
+var createWizards = function () {
+  var fragment = document.createDocumentFragment();
+  for (var i = 0; i < WIZARDS_COUNT; i++) {
+    fragment.appendChild(renderWizard());
+  }
+  similarListElement.appendChild(fragment);
+};
+
+createWizards();
