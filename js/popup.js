@@ -44,4 +44,19 @@
       closePopup();
     }
   });
+
+  var form = setup.querySelector('.setup-wizard-form');
+
+  form.addEventListener('submit', function (evt) {
+    var buttonSubmit = document.querySelector('.setup-submit');
+    buttonSubmit.textContent = 'Загрузка...';
+    buttonSubmit.disabled = true;
+
+    window.save(new FormData(form), function () {
+      setup.classList.add('hidden');
+      buttonSubmit.textContent = 'Сохранить';
+      buttonSubmit.disabled = false;
+    });
+    evt.preventDefault();
+  });
 })();
