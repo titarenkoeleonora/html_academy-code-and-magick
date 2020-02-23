@@ -4,7 +4,7 @@
   var URL_POST = 'https://js.dump.academy/code-and-magick';
   var URL_GET = 'https://js.dump.academy/code-and-magick/data';
   var statusOk = 200;
-  var TIMEOUT_IN_MS = 10000;
+  var TIMEOUT = 10000;
 
   var setup = function (onLoad, onError) {
     var xhr = new XMLHttpRequest();
@@ -24,7 +24,7 @@
       onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
     });
 
-    xhr.timeout = TIMEOUT_IN_MS;
+    xhr.timeout = TIMEOUT;
 
     return xhr;
   };
